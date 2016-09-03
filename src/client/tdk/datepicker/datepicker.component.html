@@ -1,0 +1,29 @@
+<div class="calendar" [class.opened]="isOpened">
+  <div class="calendar-header">
+    <div class="calendar-title">{{title}}</div>
+    <span class="calendar-clear" (click)="clear()">초기화</span>
+    <span class="calendar-close" (click)="done()">완료</span>
+  </div>
+  <div class="calendar-body">
+    <div class="calendar-month" *ngFor="let month of calendar">
+      <div class="calendar-month-name">{{month.year}}년 {{month.month}}월</div>
+      <div>
+        <span *ngFor="let day of dayNames" class="calendar-day-of-week">{{day}}</span>
+      </div>
+      <div *ngFor="let week of month.days">
+        <span *ngFor="let day of week" class="calendar-day"
+          [class.holiday]="day.isHoliday"
+          [class.saturday]="!day.holidayName && day.weekday === 6"
+          [class.past-or-future-month]="isDatePastOrFutureMonth(day)"
+          [class.selectable]="isSelectableDate(day)"
+          [class.selected]="isSelectedDate(day) && !isDatePastOrFutureMonth(day)"
+          [class.gap]="isDateInGap(day)"
+          (click)="selectDay(day)">
+          {{day.day}}
+          <div *ngIf="isSelectedDate(day, 'start')" class="calendar-select-start">{{startLabel}}</div>
+          <div *ngIf="isSelectedDate(day, 'end') && !isSelectedDate(day, 'start')" class="calendar-select-end">{{endLabel}}</div>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

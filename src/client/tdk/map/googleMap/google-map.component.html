@@ -1,0 +1,124 @@
+<div [style.height.px]="mapHeight">
+  <sebm-google-map
+    [latitude]="tdkGoogleMap.latitude"        [longitude]="tdkGoogleMap.longitude"
+    [zoom]="tdkGoogleMap?.zoom"               [zoomControl]="tdkGoogleMap?.zoomControl"
+    [scrollwheel]="tdkGoogleMap?.scrollwheel" [draggable]="tdkGoogleMap?.draggable"
+    [usePanning]="tdkGoogleMap?.usePanning"
+    [backgroundColor]="tdkGoogleMap?.backgroundColor"
+    [disableDefaultUI]="tdkGoogleMap?.disableDefaultUI"
+    [keyboardShortcuts]="tdkGoogleMap?.keyboardShortcuts"
+    [streetViewControl]="tdkGoogleMap?.streetViewControl"
+    [disableDoubleClickZoom]="tdkGoogleMap?.disableDoubleClickZoom"
+
+    (mapClick)="onMapClick($event)"
+    (mapDblClick)="onMapDblClick($event)"
+    (mapRightClick)="onMapRightClick($event)"
+    (zoomChange)="onMapZoomChange($event)"
+    (centerChange)="onMapCenterChange($event)"
+    >
+    <template ngFor let-infoWindow [ngForOf]="tdkGoogleMap?.infoWindows">
+      <sebm-google-map-info-window
+        [latitude]="infoWindow.latitude"
+        [longitude]="infoWindow.longitude"
+        [isOpen]="true"
+        > <!-- map 하위 infowindow의 isOpen 기본값은 true -->
+        {{ infoWindow.text }}
+      </sebm-google-map-info-window>
+    </template>
+
+    <template ngFor let-marker [ngForOf]="tdkGoogleMap?.markers">
+      <sebm-google-map-marker
+        [latitude]="marker.latitude"
+        [longitude]="marker.longitude"
+        [markerDraggable]="marker?.draggable"
+        [title]="marker?.title"
+        [label]="marker?.label"
+        [iconUrl]="marker?.iconUrl"
+        [visible]="marker?.visible"
+        [openInfoWindow]="marker?.openInfoWindow"
+        [opacity]="marker?.opacity"
+        [zIndex]="marker?.zIndex"
+
+        (markerClick)="onMarkerClick(marker)"
+        (dragEnd)="onMarkerDragEnd($event, marker)"
+        >
+
+        <sebm-google-map-info-window
+          [disableAutoPan]="marker?.infoWindow?.disableAutoPan"
+          [isOpen]="marker?.infoWindow?.isOpen"
+          (infoWindowClose)="onMarkerInfoWindowClose($event, marker)"
+          >
+          {{ marker?.infoWindow?.text }}
+        </sebm-google-map-info-window>
+
+
+      </sebm-google-map-marker>
+    </template>
+
+    <template ngFor let-circle [ngForOf]="tdkGoogleMap?.circles">
+      <sebm-google-map-circle
+        [latitude]="circle.latitude"  [longitude]="circle.longitude"
+        [radius]="circle.radius"      [fillColor]="circle?.fillColor"
+        [editable]="circle?.editable" [clickable]="circle?.clickable"
+        [visible]="circle?.visible"   [zIndex]="circle?.zIndex"
+        [fillOpacity]="circle?.fillOpacity"
+        [circleDraggable]="circle?.draggable"
+        [strokeColor]="circle?.strokeColor"
+        [strokeWeight]="circle?.strokeWeight"
+        [strokeOpacity]="circle?.strokeOpacity"
+        [strokePosition]="circle?.strokePosition"
+
+        (centerChange)="onCircleCenterChange($event, circle)"
+        (circleClick)="onCircleClick($event, circle)"
+        (circleDblClick)="onCircleDblClick($event, circle)"
+        (rightClick)="onCircleRightClick($event, circle)"
+        (drag)="onCircleDrag($event, circle)"
+        (dragEnd)="onCircleDragEnd($event, circle)"
+        (dragStart)="onCircleDragStart($event, circle)"
+        (mouseDown)="onCircleMouseDown($event, circle)"
+        (mouseMove)="onCircleMouseMove($event, circle)"
+        (mouseOut)="onCircleMouseOut($event, circle)"
+        (mouseOver)="onCircleMouseOver($event, circle)"
+        (mouseUp)="onCircleMouseUp($event, circle)"
+        (radiusChange)="onCircleRadiusChange($event, circle)"
+        >
+      </sebm-google-map-circle>
+    </template>
+
+    <template ngFor let-polyline [ngForOf]="tdkGoogleMap?.polylines">
+      <sebm-google-map-polyline
+        [zIndex]="polyline?.zIndex"     [visible]="polyline?.visible"
+        [editable]="polyline?.editable" [geodesic]="polyline?.geodesic"
+        [clickable]="polyline?.clickable"
+        [polylineDraggable]="polyline?.draggable"
+        [strokeColor]="polyline?.strokeColor"
+        [strokeWeight]="polyline?.strokeWeight"
+        [strokeOpacity]="polyline?.strokeOpacity"
+
+        (lineClick)="onLineClick($event, polyline)"
+        (lineDblClick)="onLineDblClick($event, polyline)"
+        (lineRightClick)="onLineRightClick($event, polyline)"
+        (lineDrag)="onLineDrag($event, polyline)"
+        (lineDragStart)="onLineDragStart($event, polyline)"
+        (lineDragEnd)="onLineDragEnd($event, polyline)"
+        >
+
+        <template ngFor let-point [ngForOf]="polyline?.points">
+          <sebm-google-map-polyline-point
+            [latitude]="point?.latitude"
+            [longitude]="point?.longitude"
+
+            (positionChanged)="onPointPositionChanged($event)"
+            >
+          </sebm-google-map-polyline-point>
+        </template>
+
+      </sebm-google-map-polyline>
+    </template>
+
+    <!-- map control -->
+    <tdk-google-map-control #mapControl
+      (mapLoaded)="mapLoaded($event)">
+    </tdk-google-map-control>
+  </sebm-google-map>
+</div>

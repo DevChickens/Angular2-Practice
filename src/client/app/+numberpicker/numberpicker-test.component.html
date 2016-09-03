@@ -1,0 +1,80 @@
+<div>
+  <div class="title">
+    -- Data bind test --
+    <div class="text">
+      [number]='number' <br/>(getNumber)='getNumber($event)'
+    </div>
+  </div>
+  <tdk-numberpicker [number]='number' (getNumber)='getNumber($event)'></tdk-numberpicker>
+  
+  <div class="row">
+    <div class="box">
+      <div class="text">
+        testComponent Data : 
+      </div>
+    </div>
+    <div class="box">
+      <input type='text' [value]='number' (input)='onInput($event)'>
+    </div>
+  </div>
+  <div class="title">
+    -- Style setting --
+    <div class="text">
+      [boxStyle]='customBoxStyle' <br/>
+      customBoxStyle=width:'200px', height:'100px', <br/>
+      fontSize: '30px', color: 'orangered', <br/>
+      backgroundColor: 'lightyellow' 
+    </div>
+  </div>
+  <tdk-numberpicker [boxStyle]='customBoxStyle'></tdk-numberpicker>
+
+  <div class="title">
+    -- Max Number Setting --
+    <div class="text">
+      [maxNumber]='10'
+    </div>
+  </div>
+  <tdk-numberpicker [maxNumber]='10'></tdk-numberpicker>
+
+  <div class="title">
+    -- Ex layout --
+  </div>
+  <div class="row"> 
+    <div class="box">
+      <tdk-numberpicker></tdk-numberpicker>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='box'>
+      <tdk-numberpicker></tdk-numberpicker>
+    </div>
+    <div class='box'>
+      <tdk-numberpicker></tdk-numberpicker>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='box'>
+      <tdk-numberpicker></tdk-numberpicker>
+    </div>
+    <div class='box'>
+      <tdk-numberpicker></tdk-numberpicker>
+    </div>
+    <div class='box'>
+      <tdk-numberpicker></tdk-numberpicker>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='box'>
+      <tdk-numberpicker></tdk-numberpicker>
+    </div>
+    <div class='box'>
+      <tdk-numberpicker></tdk-numberpicker>
+    </div>
+    <div class='box'>
+      <tdk-numberpicker></tdk-numberpicker>
+    </div>
+    <div class='box'>
+      <tdk-numberpicker></tdk-numberpicker>
+    </div>
+  </div>
+</div>

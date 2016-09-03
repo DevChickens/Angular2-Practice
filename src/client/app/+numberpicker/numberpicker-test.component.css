@@ -1,0 +1,28 @@
+.row {
+  position: relative;
+  display: flex;
+}
+
+.box {
+  display: inline-block;
+  flex: 1;
+  padding: 5px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 30px 10px 10px 10px; 
+}
+
+.text {
+  font-size: 15px;
+  margin-top: 18px;
+  color: darkgray;
+}
+
+input {
+  border: 1px solid silver;
+  border-radius: 3px;
+  margin-top: 10px;
+}
