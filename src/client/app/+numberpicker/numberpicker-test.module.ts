@@ -7,13 +7,13 @@ import { NumberPickerComponent } from './../../tdk/numberpicker/numberpicker.com
 import { NumberpickerTestComponent } from './numberpicker-test.component';
 
 const routerConfig = [{
-  path:                     '',
-  component:                NumberpickerTestComponent
+  path: '',
+  component: NumberpickerTestComponent
 }];
 
 @NgModule({
-  imports:                  [CommonModule, ModalModule.forRoot(), RouterModule.forChild(routerConfig)],
-  declarations:             [NumberpickerTestComponent, NumberPickerComponent],
-  exports:                  [NumberpickerTestComponent]
+  imports: [CommonModule, ModalModule.forRoot(), RouterModule.forChild(routerConfig)],
+  declarations: [NumberpickerTestComponent, NumberPickerComponent],
+  exports: [NumberpickerTestComponent]
 })
-export default class HomeModule { }
+export default class NumberPickerModule { }
