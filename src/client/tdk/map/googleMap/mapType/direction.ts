@@ -28,4 +28,4 @@ export interface TdkGoogleMapDirection {
 }
 
 // travelMode 의 타입
-export type TravelModeType = "DRIVING"|"BICYCLING"|"TRANSIT"|"WALKING";
+export type TravelModeType = 'DRIVING'|'BICYCLING'|'TRANSIT'|'WALKING';
