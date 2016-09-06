@@ -1,0 +1,83 @@
+.header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+}
+.header>.left {
+  width:50px;
+  border: 1px solid silver;
+  text-align: center;
+}
+.header>.right {
+  width:50px;
+  border: 1px solid silver;
+  text-align: center;
+}
+.header>.center {
+  flex: 1;
+  text-align: center;
+  border: 1px solid silver;
+}
+
+.voca {
+  position: fixed;
+  height:calc(100% - 150px);
+  width:100%;
+  bottom: 100px;
+}
+.vertical-box {
+  width:100%;
+  height:100%;
+}
+.vertical-box:before {
+  content: '';
+  display: inline-block;
+  height: 100%; 
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+.vertical-box:after {
+  content: '';
+  display: inline-block;
+  height: 100%; 
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+.vertical-box-middle {
+  display: inline-block;
+  vertical-align: middle;
+  width: calc(100% - 0.5em);
+}
+
+.word {
+  width: 100%;
+  text-align: center;
+  font-size: 4em;
+}
+.mean {
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+}
+
+.buttonGroup {
+  height:100px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  padding: 15px;
+}
+.button {
+  flex: 1;
+  background: silver;
+  border: 1px solid silver;
+  border-radius: 5px;
+  margin-right: 15px;
+  text-align: center;
+  font-size: 2em;
+  color: white;
+}
+.button:last-child {
+  margin: 0;
+}
