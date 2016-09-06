@@ -21,7 +21,7 @@ import { SliderModule } from '../tdk/slider/index';
 import { SliderTestComponent } from './+slider/index';
 import { TravelhowHammerConfig } from '../config/hammer.config';
 import { GoogleMapModule } from '../tdk/map/googleMap/index';
-import { LazyMapsAPILoaderConfig } from 'angular2-google-maps/core';
+// import { LazyMapsAPILoaderConfig } from 'angular2-google-maps/core';
 
 /**
  * import all rxjs libraries
@@ -57,16 +57,6 @@ import { LazyMapsAPILoaderConfig } from 'angular2-google-maps/core';
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: TravelhowHammerConfig
-    },
-    // google map
-    {
-      provide: LazyMapsAPILoaderConfig,
-      useFactory: () => {
-        let config = new LazyMapsAPILoaderConfig();
-        // 테스트용으로 발급 -도연
-        config.apiKey = 'AIzaSyAjxgxEyTkkSArKxWXdqNinrQ5tBsVX5Co';
-        return config;
-      }
     }
   ],
   bootstrap: [
