@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 import 'rxjs/Rx';
 import { routes } from './app.routes';
 import { APP_SERVICE_PROVIDERS } from '../biz/service/index';
@@ -35,6 +35,7 @@ import { GoogleMapModule } from '../tdk/map/googleMap/index';
     RouterModule.forRoot(routes),
     StoreModule.provideStore(APP_REDUCERS),
     HttpModule,
+    JsonpModule,
     SliderModule.forRoot(),
     GoogleMapModule.forRoot()
   ],
